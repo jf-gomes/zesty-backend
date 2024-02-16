@@ -44,7 +44,7 @@ async function login(req, res){
             return res.status(401).json({ response: 'Wrong password' })
         } else {
             try {
-                const secret = process.env.SECRET
+                const secret = 'ASKJDMLAIHJQ'
                 const token = jwt.sign({
                     id: user._id
                 }, secret)
@@ -65,7 +65,7 @@ function verifyToken(req, res, next){
         return res.status(401).json('Access denied')
     }
     try{
-        const secret = process.env.SECRET
+        const secret = 'ASKJDMLAIHJQ'
         jwt.verify(token, secret)
         next()
     }
